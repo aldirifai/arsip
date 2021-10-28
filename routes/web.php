@@ -17,14 +17,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.admin');
-});
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('periode', PeriodeController::class);
-Route::resource('jenjang', JenjangController::class);
-Route::resource('berkas', BerkasController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('layouts.admin');
+    });
+
+
+
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::resource('periode', PeriodeController::class);
+    Route::resource('jenjang', JenjangController::class);
+    Route::resource('berkas', BerkasController::class);
+});
