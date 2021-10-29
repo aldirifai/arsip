@@ -25,8 +25,6 @@ Route::middleware(['auth'])->group(function () {
         return view('layouts.admin');
     });
 
-
-
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::resource('periode', PeriodeController::class);
