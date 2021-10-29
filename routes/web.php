@@ -22,7 +22,7 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
-        return view('layouts.admin');
+        return redirect('home');
     });
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
