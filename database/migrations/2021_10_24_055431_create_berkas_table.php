@@ -20,6 +20,8 @@ class CreateBerkasTable extends Migration
             $table->string('tanggal_legalisir');
             $table->string('nama_sekolah');
             $table->string('file_arsip');
+            $table->string('status_permohonan')->nullable();
+            $table->string('status_verifikasi')->nullable();
             $table->unsignedBigInteger('id_periode');
             $table->unsignedBigInteger('id_jenjang');
             $table->foreign('id_periode')->references('id')->on('periode')->onDelete('cascade')->onUpdate('cascade');
